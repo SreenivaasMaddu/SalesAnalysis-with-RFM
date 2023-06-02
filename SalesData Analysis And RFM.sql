@@ -1,14 +1,14 @@
 
 
-  -------------Inspecting Data----------------------------------------------
+        --------Inspecting Data----------------------------------------------
 
-    select * FROM [PortfolioDB].[dbo].[SampleSalesData]
+        select * FROM [PortfolioDB].[dbo].[SampleSalesData]
 
 
-  --------------Checking Unique values---------------------------------------
+        ---------Checking Unique values---------------------------------------
 
-    select distinct STATUS FROM [PortfolioDB].[dbo].[SampleSalesData]
-    select distinct year_id FROM [PortfolioDB].[dbo].[SampleSalesData]
+        select distinct STATUS FROM [PortfolioDB].[dbo].[SampleSalesData]
+        select distinct year_id FROM [PortfolioDB].[dbo].[SampleSalesData]
 	select distinct PRODUCTLINE FROM [PortfolioDB].[dbo].[SampleSalesData]
 	select distinct COUNTRY FROM [PortfolioDB].[dbo].[SampleSalesData]
 	select distinct DEALSIZE FROM [PortfolioDB].[dbo].[SampleSalesData]
@@ -24,7 +24,7 @@
 
 	-----------Grouping sales by YEAR_ID----------------------
 
-    select YEAR_ID, sum(sales) Revenue
+        select YEAR_ID, sum(sales) Revenue
 	FROM [PortfolioDB].[dbo].[SampleSalesData]
 	group by YEAR_ID
 	order by 2 desc
@@ -38,7 +38,7 @@
 	order by 2 desc
 
 
-   -----------What city has the highest number of sales in a specific country
+         -------What city has the highest number of sales in a specific country
 
 	select city, sum (sales) Revenue
 	FROM [PortfolioDB].[dbo].[SampleSalesData]
@@ -47,7 +47,7 @@
 	order by 2 desc
 
 
-  ------------What is the best product in United States?
+        -------What is the best product in United States?
 
 	select country, YEAR_ID, PRODUCTLINE, sum(sales) Revenue
 	FROM [PortfolioDB].[dbo].[SampleSalesData]
@@ -68,7 +68,7 @@
 
 	select  MONTH_ID, PRODUCTLINE, sum(sales) Revenue, count(ORDERNUMBER) Frequency
 	FROM [PortfolioDB].[dbo].[SampleSalesData]
-	where YEAR_ID = 2004 and MONTH_ID = 11 --change year to see the rest
+	where YEAR_ID = 2004 and MONTH_ID = 11 
 	group by  MONTH_ID, PRODUCTLINE
 	order by 3 desc
 
@@ -113,7 +113,7 @@ from rfm_calc ;
 select CUSTOMERNAME , rfm_recency, rfm_frequency, rfm_revenue,
 	case 
 		when rfm_cell_string in (111, 112 , 121, 122, 123, 132, 211, 212, 114, 141) then 'lost_customers'  --lost customers
-		when rfm_cell_string in (133, 134, 143, 244, 334, 343, 344, 144) then 'slipping away, cannot lose' -- (Big spenders who haven’t purchased lately) slipping away
+		when rfm_cell_string in (133, 134, 143, 244, 334, 343, 344, 144) then 'slipping away, cannot lose' -- (Big spenders who havenâ€™t purchased lately) slipping away
 		when rfm_cell_string in (311, 411, 331) then 'new customers'
 		when rfm_cell_string in (222, 223, 233, 322) then 'potential churners'
 		when rfm_cell_string in (323, 333,321, 422, 332, 432) then 'active' --(Customers who buy often & recently, but at low price points)
