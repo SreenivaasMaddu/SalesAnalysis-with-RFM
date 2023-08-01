@@ -1,3 +1,5 @@
+#RFM (Recency, Frequency, Monetary) analysis#
+
 RFM (Recency, Frequency, Monetary) analysis is a popular technique used in marketing and 
 sales to segment customers based on their purchasing behavior. It helps businesses identify
 and prioritize their most valuable customers and develop targeted marketing strategies. 
